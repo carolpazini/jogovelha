@@ -31,3 +31,44 @@
     transform: rotate(360deg);
   }
 }
+
+.tabuleiro{
+
+  width: 408px;
+  height: 408px;
+  float: left;
+  background-color: bisque;
+  margin: 10px ;
+}
+
+
+.bloco{
+  width: 128px;
+  height: 128px;
+  border: 2px solid ;
+  border-color: black;
+  text-align: left ;
+  padding: 2px;
+  float: left;
+  cursor: pointer;
+}
+
+.icone{
+  width: 124px;
+  height: 124px;
+}
+
+button{
+  width: 200px;
+  height: 30px;
+  background-color: burlywood;
+}
+
+.margem{
+  margin: 10px ;
+}
+
+.margem2{
+  margin-top: 10px;
+  padding: 10px;
+}
