@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
 //aqui esta o tabuleiro
-class App extends Component {
+class Tabuleiro extends Component {
   render() {
     return (
       <div className="tabuleiro">
@@ -38,13 +38,9 @@ class Bloco extends React.Component{
 }
 
 //talvez aqui pegue o conteudo do bloquinho
-class Tabuleiro extends React.Component{
-  renderBloco(i){
-    return <Bloco value={i}/>
-  }
-}
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(<Tabuleiro />, document.getElementById('root'));
 
 ReactDOM.render(<Bloco />, document.getElementById('a1'));
 ReactDOM.render(<Bloco />, document.getElementById('a2'));
@@ -57,5 +53,7 @@ ReactDOM.render(<Bloco />, document.getElementById('b3'));
 ReactDOM.render(<Bloco />, document.getElementById('c1'));
 ReactDOM.render(<Bloco />, document.getElementById('c2'));
 ReactDOM.render(<Bloco />, document.getElementById('c3'));
+
 serviceWorker.unregister();
-export default App;
+
+export default Tabuleiro;
