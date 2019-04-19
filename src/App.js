@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import ReactDOM from 'react-dom';
+import ankh from './ankh.png';
+import horus from './horus.png';
 import * as serviceWorker from './serviceWorker';
 
 //aqui esta o tabuleiro
@@ -9,17 +11,17 @@ class Tabuleiro extends Component {
     return (
       <div className="tabuleiro">
  
-        <div id="a1" className="bloco" onclick="jogada(this.id);verifica();"></div>
-        <div id="a2" className="bloco" onclick="jogada(this.id);verifica();"></div>
-        <div id="a3" className="bloco" onclick="jogada(this.id);verifica();"></div>
+        <div id="a1" className="bloco" onClick="jogada(this.id);verifica();"></div>
+        <div id="a2" className="bloco" onClick="jogada(this.id);verifica();"></div>
+        <div id="a3" className="bloco" onClick="jogada(this.id);verifica();"></div>
 
-        <div id="b1" className="bloco" onclick="jogada(this.id);verifica();"></div>
-        <div id="b2" className="bloco" onclick="jogada(this.id);verifica();"></div>
-        <div id="b3" className="bloco" onclick="jogada(this.id);verifica();"></div>
+        <div id="b1" className="bloco" onClick="jogada(this.id);verifica();"></div>
+        <div id="b2" className="bloco" onClick="jogada(this.id);verifica();"></div>
+        <div id="b3" className="bloco" onClick="jogada(this.id);verifica();"></div>
 
-        <div id="c1" className="bloco" onclick="jogada(this.id);verifica();"></div>
-        <div id="c2" className="bloco" onclick="jogada(this.id);verifica();"></div>
-        <div id="c3" className="bloco" onclick="jogada(this.id);verifica();"></div>
+        <div id="c1" className="bloco" onClick="jogada(this.id);verifica();"></div>
+        <div id="c2" className="bloco" onClick="jogada(this.id);verifica();"></div>
+        <div id="c3" className="bloco" onClick="jogada(this.id);verifica();"></div>
          
 </div>
     );
