@@ -37,6 +37,25 @@ class Bloco extends React.Component{
   }
 }
 
+//talvez aqui pegue o conteudo do bloquinho
+class Tabuleiro extends React.Component{
+  renderBloco(i){
+    return <Bloco value={i}/>
+  }
+}
+
 ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(<Bloco />, document.getElementById('a1'));
+ReactDOM.render(<Bloco />, document.getElementById('a2'));
+ReactDOM.render(<Bloco />, document.getElementById('a3'));
+
+ReactDOM.render(<Bloco />, document.getElementById('b1'));
+ReactDOM.render(<Bloco />, document.getElementById('b2'));
+ReactDOM.render(<Bloco />, document.getElementById('b3'));
+
+ReactDOM.render(<Bloco />, document.getElementById('c1'));
+ReactDOM.render(<Bloco />, document.getElementById('c2'));
+ReactDOM.render(<Bloco />, document.getElementById('c3'));
 serviceWorker.unregister();
 export default App;
