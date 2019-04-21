@@ -105,15 +105,9 @@ class Jogada extends React.Component {
   toggleProxJogador = () => {
     this.setState(
       {
-/* poderia ser algo mais ou menos assim tbm eu acho
-    const icone = this.state;
-    if(icone === ankh){
-      return ankh;
-    }else{
-      return horus; 
- */
+
         proxJogador: this.state.proxJogador === "X" ?  "O" : "X",
-        move: this.state.move++
+        move: this.setState
       },
       this.verifGanhador()
     );
