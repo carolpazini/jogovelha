@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import ReactDOM from 'react-dom';
 import ankh from './ankh.png';
@@ -119,7 +119,7 @@ class Jogada extends React.Component {
     );
   };
 
-//verifica na real quem ganhou
+//verifica os bloquinhos
 verifGanhador = () => {
   let a1 = this.state.a1.current.state.value;
   let a2 = this.state.a2.current.state.value;
@@ -133,11 +133,49 @@ verifGanhador = () => {
   let c2 = this.state.c2.current.state.value;
   let c3 = this.state.c3.current.state.value;
 
-//colocar as probabilidades
+//vê quem ganha
 
+if(
+
+  ((a1 !== '') && (a2 !== '') && (a3 !== '') && (a1 === a2) && (a2 === a3)) || 
+  ((a1 !== '') && (b2 !== '') && (c3 !== '') && (a1 === b2) && (b2 === c3)) || 
+  ((a1 !== '') && (b1 !== '') && (c1 !== '') && (a1 === b1) && (b1 === c1)) || 
+  ((b1 !== '') && (b2 !== '') && (b3 !== '') && (b1 === b2) && (b2 === b3)) || 
+  ((c1 !== '') && (c2 !== '') && (c3 !== '') && (c1 === c2) && (c2 === c3)) || 
+  ((a2 !== '') && (b2 !== '') && (c2 !== '') && (a2 === b2) && (b2 === c2)) || 
+  ((a3 !== '') && (b3 !== '') && (c3 !== '') && (a3 === b3) && (b3 === c3)) || 
+  ((c1 !== '') && (b2 !== '') && (a3 !== '') && (c1 === b2) && (b2 === a3))
+
+){
+
+  alert("Parece que alguém ganhou!");
+
+
+}
 };
 
+render() {
+  return (
+    <div >
+      <JogadaContext.Provider value={{ state: this.state }}>
+        <h1 className="margem">Bem-vindo ao Jogo das Antiguidades</h1>
+        <h2 className="margem">Escolha entre um Ankh ou um Olho de Hórus</h2>
+        <img src={ankh} alt="ankh" />
+        <img src={horus} alt="horus" />
+        <Tabuleiro />
+        <h3>{this.state.progress}</h3>
+        <button type="button" onClick={ recarrega }> <span>E lá vamos nós...</span> </button> 
+      </JogadaContext.Provider>
+    </div>
+  );
+}
 
+
+}
+//funcao pra limpar o jogo
+function recarrega(){ 
+  window.location.reload(); 
+}
 
 
 const rootElement = document.getElementById("root");
