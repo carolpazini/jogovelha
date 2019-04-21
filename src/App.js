@@ -69,8 +69,21 @@ function Tabuleiro() {
   );
 }
 
+// aqui o comeca a ficar serio socorro
 
-//aqui estao definidos dos bloquinhos- eu acho
+class Jogada extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      move: 0,
+      nextPlayer: "X",
+      toggleNextPlayer: this.toggleNextPlayer,
+      progress: "Em jogo"
+    };
+  }
+
+
+/* aqui estao definidos dos bloquinhos- eu acho
 class Bloco extends React.Component{
   render(){
     const icone = this.state;
@@ -80,7 +93,7 @@ class Bloco extends React.Component{
       return horus; 
   }
 }
-}
+} */
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<Jogada />, rootElement);
