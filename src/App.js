@@ -191,21 +191,26 @@ else if (
   b1 !== "..." && b2 !== "..." && b3 !== "..." &&
   c1 !== "..." && c2 !== "..." && c3 !== "..."
 ) {
-  this.setState({ progress: "Ops, deu velha, digo, múmias, digo... antiguidades" });
+  this.setState({ progress: "Ops, deu velha, digo, múmia, digo... antiguidade" });
 }
 };
 
 render() {
   return (
-    <div >
+    <div className="mostrador">
+    
       <JogadaContext.Provider value={{ state: this.state }}>
-        <h1 className="margem">Bem-vindo ao Jogo das Antiguidades</h1>
-        <h2 className="margem">Escolha entre um Ankh ou um Olho de Hórus</h2>
+      <Tabuleiro />
+        <div className="centralizador">
+        <h1 >Bem-vindo ao Jogo das Antiguidades</h1>
+        <h2 >Escolha entre um Ankh ou um Olho de Hórus</h2>
+       
         <img src={ankh} alt="ankh" />
         <img src={horus} alt="horus" />
-        <Tabuleiro />
+        
         <h3>{this.state.progress}</h3>
         <button type="button" onClick={ recarrega }> <span>E lá vamos nós...</span> </button> 
+        </div>
       </JogadaContext.Provider>
     </div>
   );
