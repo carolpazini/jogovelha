@@ -11,35 +11,35 @@ class Tabuleiro extends Component {
     return (
       <div className="tabuleiro">
  
-        <div id="a1" className="bloco" onClick="jogada(this.id);verifica();"></div>
-        <div id="a2" className="bloco" onClick="jogada(this.id);verifica();"></div>
-        <div id="a3" className="bloco" onClick="jogada(this.id);verifica();"></div>
+        <div id="a1" className="bloco" onClick={Bloco}></div>
+        <div id="a2" className="bloco" onClick={this.render}></div>
+        <div id="a3" className="bloco" onClick={this.render}></div>
 
-        <div id="b1" className="bloco" onClick="jogada(this.id);verifica();"></div>
-        <div id="b2" className="bloco" onClick="jogada(this.id);verifica();"></div>
-        <div id="b3" className="bloco" onClick="jogada(this.id);verifica();"></div>
+        <div id="b1" className="bloco" onClick={this.render}></div>
+        <div id="b2" className="bloco" onClick={this.render}></div>
+        <div id="b3" className="bloco" onClick={this.render}></div>
 
-        <div id="c1" className="bloco" onClick="jogada(this.id);verifica();"></div>
-        <div id="c2" className="bloco" onClick="jogada(this.id);verifica();"></div>
-        <div id="c3" className="bloco" onClick="jogada(this.id);verifica();"></div>
+        <div id="c1" className="bloco" onClick={this.render}></div>
+        <div id="c2" className="bloco" onClick={this.render}></div>
+        <div id="c3" className="bloco" onClick={this.render}></div>
          
 </div>
     );
   }
 }
 
+
 //aqui estao definidos dos bloquinhos- eu acho
 class Bloco extends React.Component{
   render(){
-    return(
-      <button className="bloco">
-      {this.props.value}
-      </button>
-    );
+    const icone = this.state;
+    if(icone === ankh){
+      return ankh;
+    }else{
+      return horus; 
   }
 }
-
-//talvez aqui pegue o conteudo do bloquinho
+}
 
 
 ReactDOM.render(<Tabuleiro />, document.getElementById('root'));
