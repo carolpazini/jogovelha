@@ -106,7 +106,7 @@ class Jogada extends React.Component {
     this.setState(
       {
 
-        proxJogador: this.state.proxJogador === "☥" ?  "O" : "☥",
+        proxJogador: this.state.proxJogador === "☥" ?  "𓂀" : "☥",
         move: this.setState
       },
       this.verifGanhador()
@@ -139,45 +139,45 @@ if (a1 === "☥" && a2 === "☥" && a3 === "☥") {
 } 
 
 //probabilidades do a1 com o O(horus)
-else if (a1 === "O" && a2 === "O" && a3 === "O") {
+else if (a1 === "𓂀" && a2 === "𓂀" && a3 === "𓂀") {
   this.setState({ progress: "Horús é o ganhador!" });
-} else if (a1 === "O" && b1 === "O" && c1 === "O") {
+} else if (a1 === "𓂀" && b1 === "𓂀" && c1 === "𓂀") {
   this.setState({ progress: "Horús é o ganhador!" });
-} else if (a1 === "O" && b2 === "O" && c3 === "O") {
+} else if (a1 === "𓂀" && b2 === "𓂀" && c3 === "𓂀") {
   this.setState({ progress: "Horús é o ganhador!" });
 } 
 
 //probabilidades do b1 com X(ankh) e O(horus)
 else if (b1 === "☥" && b2 === "☥" && b3 === "☥") {
   this.setState({ progress: "Ankh é o ganhador!" });
-} else if (b1 === "O" && b2 === "O" && b3 === "O") {
+} else if (b1 === "𓂀" && b2 === "𓂀" && b3 === "𓂀") {
   this.setState({ progress: "Horús é o ganhador!" });
 } 
 
 //probabilidades do c1 com X(ankh) e O(horus)
 else if (c1 === "☥" && c2 === "☥" && c3 === "☥") {
   this.setState({ progress: "Ankh é o ganhador!" });
-} else if (c1 === "O" && c2 === "O" && c3 === "O") {
+} else if (c1 === "𓂀" && c2 === "𓂀" && c3 === "𓂀") {
   this.setState({ progress: "Horús é o ganhador!" });
 } 
 
 //probabilidades do a2 com X(ankh) e O(horus)
 else if (a2 === "☥" && b2 === "☥" && c2 === "☥") {
   this.setState({ progress: "Ankh é o ganhador!" });
-} else if (a2 === "O" && b2 === "O" && c2 === "O") {
+} else if (a2 === "𓂀" && b2 === "𓂀" && c2 === "𓂀") {
   this.setState({ progress: "Horús é o ganhador!" });
 } 
 
 //probabilidades do a3 com X(ankh) e O(horus)
 else if (a3 === "☥" && b3 === "☥" && c3 === "☥") {
   this.setState({ progress: "Ankh é o ganhador!" });
-} else if (a3 === "O" && b3 === "O" && c3 === "O") {
+} else if (a3 === "𓂀" && b3 === "𓂀" && c3 === "𓂀") {
   this.setState({ progress: "Horús é o ganhador!" });
 }  
 
 else if (a3 === "☥" && b2 === "☥" && c1 === "☥") {
   this.setState({ progress: "Ankh é o ganhador!" });
-} else if (a3 === "O" && b2 === "O" && c1 === "O") {
+} else if (a3 === "𓂀" && b2 === "𓂀" && c1 === "𓂀") {
   this.setState({ progress: "Horús é o ganhador!" });
 }
 
