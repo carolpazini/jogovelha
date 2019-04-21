@@ -4,6 +4,46 @@ import ReactDOM from 'react-dom';
 import ankh from './ankh.png';
 import horus from './horus.png';
 
+//Cria o jogo no negocio
+let JogadaContext = React.createContext("");
+
+//Aqui faz ações nos quadradinhos
+class Bloco extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { value: "_" };
+  }
+
+  componentDidUpdate() {}
+
+  render() {
+    return (
+      <JogadaContext.Consumer>
+        {jogada => (
+          <div
+            onClick={
+              // determina se ha ou nao um jogo em curso
+              jogada.state.progress !== "Em jogo"
+                ? null
+                : this.state.value === "_"
+                ? () => {
+                    this.setState({ value: jogada.state.nextPlayer }, () => {
+                      jogada.state.toggleNextPlayer();
+                    });
+                  }
+                : null
+            }
+            
+          >
+            {this.state.value}
+          </div>
+        )}
+      </JogadaContext.Consumer>
+    );
+  }
+}
+
 //aqui esta o tabuleiro
 function Tabuleiro() {
   return (
@@ -25,7 +65,7 @@ function Tabuleiro() {
           </div>
         </>
       )}
-    </GameContext.Consumer>
+    </JogadaContext.Consumer>
   );
 }
 
