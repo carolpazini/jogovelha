@@ -3,6 +3,7 @@ import './App.css';
 import ReactDOM from 'react-dom';
 import ankh from './ankh.png';
 import horus from './horus.png';
+import bye from './bye.gif';
 
 //Cria o jogo no negocio
 let JogadaContext = React.createContext("");
@@ -113,7 +114,7 @@ class Jogada extends React.Component {
     );
   };
 
-//verifica os bloquinhos
+//verifica os bloquinhos pra ver quem ganhou
 verifGanhador = () => {
   let a1 = this.state.a1.current.state.value;
   let a2 = this.state.a2.current.state.value;
@@ -187,7 +188,7 @@ else if (
   b1 !== "..." && b2 !== "..." && b3 !== "..." &&
   c1 !== "..." && c2 !== "..." && c3 !== "..."
 ) {
-  this.setState({ progress: "Ops, deu velha, digo, múmia, digo... antiguidade" });
+  this.setState({ progress: "Ops, deu velha, digo, múmia, digo... antiguidade"});
 }
 };
 
@@ -214,15 +215,12 @@ render() {
 
 
 }
-//funcao pra limpar o jogo
+//funcao pra limpar o jogo e recomecar
 function recarrega(){ 
   window.location.reload(); 
 }
 
-
 const rootElement = document.getElementById("root");
 ReactDOM.render(<Jogada />, rootElement);
-
-
 
 export default Jogada;
