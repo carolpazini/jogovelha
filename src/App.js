@@ -3,29 +3,30 @@ import './App.css';
 import ReactDOM from 'react-dom';
 import ankh from './ankh.png';
 import horus from './horus.png';
-import * as serviceWorker from './serviceWorker';
 
 //aqui esta o tabuleiro
-class Tabuleiro extends Component {
-  render() {
-    return (
-      <div className="tabuleiro">
- 
-        <div id="a1" className="bloco" onClick={Bloco}></div>
-        <div id="a2" className="bloco" onClick={this.render}></div>
-        <div id="a3" className="bloco" onClick={this.render}></div>
-
-        <div id="b1" className="bloco" onClick={this.render}></div>
-        <div id="b2" className="bloco" onClick={this.render}></div>
-        <div id="b3" className="bloco" onClick={this.render}></div>
-
-        <div id="c1" className="bloco" onClick={this.render}></div>
-        <div id="c2" className="bloco" onClick={this.render}></div>
-        <div id="c3" className="bloco" onClick={this.render}></div>
-         
-</div>
-    );
-  }
+function Tabuleiro() {
+  return (
+    <JogadaContext.Consumer>
+      {jogada => (
+        <>
+          <div className="tabuleiro">
+            <div className="bloco"> <Bloco ref={jogada.state.a1} /> </div>
+            <div className="bloco"><Square ref={game.state.a2} /> </div>
+            <div className="bloco"><Square ref={game.state.a3} /> </div>
+          
+            <div className="bloco"> <Square ref={game.state.b1} /> </div>
+            <div className="bloco"> <Square ref={game.state.b2} /> </div>
+            <div className="bloco"> <Square ref={game.state.b3} /> </div>
+          
+            <div className="bloco"> <Square ref={game.state.c1} /> </div>
+            <div className="bloco"> <Square ref={game.state.c2} /> </div>
+            <div className="bloco"> <Square ref={game.state.c3} /> </div>
+          </div>
+        </>
+      )}
+    </GameContext.Consumer>
+  );
 }
 
 
@@ -41,21 +42,9 @@ class Bloco extends React.Component{
 }
 }
 
+const rootElement = document.getElementById("root");
+ReactDOM.render(<Jogada />, rootElement);
 
-ReactDOM.render(<Tabuleiro />, document.getElementById('root'));
 
-ReactDOM.render(<Bloco />, document.getElementById('a1'));
-ReactDOM.render(<Bloco />, document.getElementById('a2'));
-ReactDOM.render(<Bloco />, document.getElementById('a3'));
 
-ReactDOM.render(<Bloco />, document.getElementById('b1'));
-ReactDOM.render(<Bloco />, document.getElementById('b2'));
-ReactDOM.render(<Bloco />, document.getElementById('b3'));
-
-ReactDOM.render(<Bloco />, document.getElementById('c1'));
-ReactDOM.render(<Bloco />, document.getElementById('c2'));
-ReactDOM.render(<Bloco />, document.getElementById('c3'));
-
-serviceWorker.unregister();
-
-export default Tabuleiro;
+export default Jogada;
