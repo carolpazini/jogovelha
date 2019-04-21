@@ -11,8 +11,8 @@ let JogadaContext = React.createContext("");
 class Bloco extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = { value: "_" };
+    //estado inicial
+    this.state = { value: "..." };
   }
 
   componentDidUpdate() {}
@@ -26,7 +26,7 @@ class Bloco extends React.Component {
               // determina se ha ou nao um jogo em curso
               jogada.state.progress !== "Em jogo"
                 ? null
-                : this.state.value === "_"
+                : this.state.value === "..."
                 ? () => {
                     this.setState({ value: jogada.state.proxJogador }, () => {
                       jogada.state.toggleProxJogador();
@@ -135,22 +135,63 @@ verifGanhador = () => {
 
 //vê quem ganha
 
-if(
+//probabilidades do a1 com X(ankh)
+if (a1 === "X" && a2 === "X" && a3 === "X") {
+  this.setState({ progress: "Ankh é o ganhador!" });
+} else if (a1 === "X" && b1 === "X" && c1 === "X") {
+  this.setState({ progress: "Ankh é o ganhador!" });
+} else if (a1 === "X" && b2 === "X" && c3 === "X") {
+  this.setState({ progress: "Ankh é o ganhador!" });
+} 
 
-  ((a1 !== '') && (a2 !== '') && (a3 !== '') && (a1 === a2) && (a2 === a3)) || 
-  ((a1 !== '') && (b2 !== '') && (c3 !== '') && (a1 === b2) && (b2 === c3)) || 
-  ((a1 !== '') && (b1 !== '') && (c1 !== '') && (a1 === b1) && (b1 === c1)) || 
-  ((b1 !== '') && (b2 !== '') && (b3 !== '') && (b1 === b2) && (b2 === b3)) || 
-  ((c1 !== '') && (c2 !== '') && (c3 !== '') && (c1 === c2) && (c2 === c3)) || 
-  ((a2 !== '') && (b2 !== '') && (c2 !== '') && (a2 === b2) && (b2 === c2)) || 
-  ((a3 !== '') && (b3 !== '') && (c3 !== '') && (a3 === b3) && (b3 === c3)) || 
-  ((c1 !== '') && (b2 !== '') && (a3 !== '') && (c1 === b2) && (b2 === a3))
+//probabilidades do a1 com o O(horus)
+else if (a1 === "O" && a2 === "O" && a3 === "O") {
+  this.setState({ progress: "Horús é o ganhador!" });
+} else if (a1 === "O" && b1 === "O" && c1 === "O") {
+  this.setState({ progress: "Horús é o ganhador!" });
+} else if (a1 === "O" && b2 === "O" && c3 === "O") {
+  this.setState({ progress: "Horús é o ganhador!" });
+} 
 
-){
+//probabilidades do b1 com X(ankh) e O(horus)
+else if (b1 === "X" && b2 === "X" && b3 === "X") {
+  this.setState({ progress: "Ankh é o ganhador!" });
+} else if (b1 === "O" && b2 === "O" && b3 === "O") {
+  this.setState({ progress: "Horús é o ganhador!" });
+} 
 
-  alert("Parece que alguém ganhou!");
+//probabilidades do c1 com X(ankh) e O(horus)
+else if (c1 === "X" && c2 === "X" && c3 === "X") {
+  this.setState({ progress: "Ankh é o ganhador!" });
+} else if (c1 === "O" && c2 === "O" && c3 === "O") {
+  this.setState({ progress: "Horús é o ganhador!" });
+} 
 
+//probabilidades do a2 com X(ankh) e O(horus)
+else if (a2 === "X" && b2 === "X" && c2 === "X") {
+  this.setState({ progress: "Ankh é o ganhador!" });
+} else if (a2 === "O" && b2 === "O" && c2 === "O") {
+  this.setState({ progress: "Horús é o ganhador!" });
+} 
 
+//probabilidades do a3 com X(ankh) e O(horus)
+else if (a3 === "X" && b3 === "X" && c3 === "X") {
+  this.setState({ progress: "Ankh é o ganhador!" });
+} else if (a3 === "O" && b3 === "O" && c3 === "O") {
+  this.setState({ progress: "Horús é o ganhador!" });
+}  else if (a3 === "X" && b2 === "X" && c1 === "X") {
+  this.setState({ progress: "Ankh é o ganhador!" });
+} else if (a3 === "X" && b2 === "X" && c1 === "X") {
+  this.setState({ progress: "Horús é o ganhador!" });
+}
+
+// quando dá velha
+else if (
+  a1 !== "..." && a2 !== "..." && a3 !== "..." &&
+  b1 !== "..." && b2 !== "..." && b3 !== "..." &&
+  c1 !== "..." && c2 !== "..." && c3 !== "..."
+) {
+  this.setState({ progress: "Ops, deu velha, digo, múmias, digo... antiguidades" });
 }
 };
 
